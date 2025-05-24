@@ -1,10 +1,12 @@
 # Accelerated Hadamard Transform optimized for GPU
 
-AHT: Accelerated Hadamard Transform optimized for GPU. 
+AHT: Accelerated Hadamard Transform
 
 ## About 
 
-Original implementation for paper: 'BitNet v2: Native 4-bit Activations with Hadamard Transformation for 1-bit LLMs'
+Original implementation for the models using hadamard transformation.
+
+such as the paper: 'BitNet v2: Native 4-bit Activations with Hadamard Transformation for 1-bit LLMs'
 
 This implemetation provides batch-processable 'Fast' hadamard transformation using matmul.
 
