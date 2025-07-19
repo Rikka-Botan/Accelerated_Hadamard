@@ -18,7 +18,7 @@ class BotanHadamardTransform(nn.Module):
         """
         super().__init__()
         if (hidden_size & (hidden_size - 1) == 0) and hidden_size != 0:
-            ValueError("Last dimension must be a power of 2")
+            raise ValueError("Last dimension must be a power of 2")
         self.register_buffer(
             "H",
             self.generate_hadamard(hidden_size).to(torch.float32) / hidden_size**0.5)
@@ -72,7 +72,7 @@ class BotanAHT(nn.Module):
         """
         bsz, seql, embs = hidden_states.size()
         if embs % self.hs != 0:
-            ValueError('hidden size should be a multiple of hadamard size.')
+            raise ValueError('hidden size should be a multiple of hadamard size.')
         hidden_states = hidden_states.reshape(bsz, seql, -1, self.hs)
         hidden_states = self.ht(hidden_states)
         hidden_states = hidden_states.reshape(bsz, seql, -1)
